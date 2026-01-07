@@ -1,0 +1,5 @@
+replicaCount: 2
+
+ingress:
+  enabled: true
+  host: nginx-staging.example.com

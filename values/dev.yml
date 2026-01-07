@@ -1,0 +1,9 @@
+replicaCount: 1
+
+ingress:
+  enabled: true
+  host: nginx.dev.local
+
+image:
+  repository: nginx
+  tag: "1.29"
