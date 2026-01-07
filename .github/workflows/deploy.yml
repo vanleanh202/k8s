@@ -26,10 +26,12 @@ jobs:
 
       
       - name: Configure kubeconfig
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         run: |
           mkdir -p ~/.kube
           cat <<EOF > ~/.kube/config
-          ${{ secrets.KUBE_CONFIG }}
+          $KUBE_CONFIG
           EOF
           chmod 600 ~/.kube/config
 
