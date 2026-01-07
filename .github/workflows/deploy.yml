@@ -24,10 +24,16 @@ jobs:
         with:
           version: v3.14.0
 
+      
       - name: Configure kubeconfig
         run: |
           mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+          cat <<EOF > ~/.kube/config
+          ${{ secrets.KUBE_CONFIG }}
+          EOF
+          chmod 600 ~/.kube/config
+
+
 
       - name: Deploy DEV
         if: github.ref == 'refs/heads/dev'
